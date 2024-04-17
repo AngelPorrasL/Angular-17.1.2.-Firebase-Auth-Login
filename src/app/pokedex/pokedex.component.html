@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <!-- Barra de búsqueda -->
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Search Pokemon" [(ngModel)]="searchTerm">
+    </div>
+
+    <!-- Pokémon Cards -->
+    <div class="row row-cols-md-auto">
+        <div *ngFor="let pokeId of filteredPokeIds" class="col-md-4 mb-4" (click)="onViewDetail(pokeId)">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pokes[pokeId].name }}</h5>
+                    <div *ngIf="pokes[pokeId]">
+                        <!-- Mostrar la imagen front_default del Pokémon -->
+                        <img src='{{ pokes[pokeId].sprites.front_default }}' class="card-img-top img-fluid" alt="Pokemon Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

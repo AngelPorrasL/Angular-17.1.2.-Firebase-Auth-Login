@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ErrorHandlerService } from '../error-handler.service';
+import { PokedexService } from './pokedex.service';
 
-describe('ErrorHandlerService', () => {
-  let service: ErrorHandlerService;
+describe('PokedexService', () => {
+  let service: PokedexService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ErrorHandlerService);
+    service = TestBed.inject(PokedexService);
   });
 
   it('should be created', () => {

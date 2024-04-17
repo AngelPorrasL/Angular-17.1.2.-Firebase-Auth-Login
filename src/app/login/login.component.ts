@@ -33,7 +33,7 @@ export class LogicComponent {
       .login(rawForm.email, rawForm.password)
       .subscribe({
         next: () => {
-          this.router.navigateByUrl('/welcome');
+          this.router.navigateByUrl('/pokedex');
         },
         error: (err) => {
           this.openErrorModal(err.code); // Abre el modal de error

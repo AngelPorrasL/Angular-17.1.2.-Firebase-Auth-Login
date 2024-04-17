@@ -7,13 +7,13 @@ import { provideFirebaseApp, initializeApp} from '@angular/fire/app';
 import { getAuth, provideAuth  } from '@angular/fire/auth';
 
 const firebaseConfig = {
-  apiKey: "-",
-  authDomain: "-",
-  projectId: "-",
-  storageBucket: "-",
-  messagingSenderId: "-",
-  appId: "-",
-  measurementId: "-"
+  apiKey: "AIzaSyD8TKEuHC2wNUZEnDFdQKGGbvdrHADbg3s",
+  authDomain: "loginauth-d06bc.firebaseapp.com",
+  projectId: "loginauth-d06bc",
+  storageBucket: "loginauth-d06bc.appspot.com",
+  messagingSenderId: "94453480360",
+  appId: "1:94453480360:web:481c68695380a3e750bb9d",
+  measurementId: "G-LE403CPMXS"
 };
 
 export const appConfig: ApplicationConfig = {
