@@ -34,7 +34,7 @@ export class PokedexdetailComponent {
   }
 
   playCry(pokemon: any): void {
-    const audio = new Audio(pokemon.cries.latest); // Reproduce el sonido usando la última versión disponible
+    const audio = new Audio(pokemon.cries.latest);
     audio.play();
   }
 }

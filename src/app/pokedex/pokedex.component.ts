@@ -19,7 +19,7 @@ export class PokedexComponent {
   constructor(private router: Router, private pokedexService: PokedexService) {}
 
   ngOnInit(): void {
-    // Generar una lista de IDs de Pokémon del 1 al 20 (o cualquier rango deseado)
+    // Generar una lista de IDs de Pokémon del 1 a cualquier rango deseado)
     const pokeIds = Array.from({ length: 62 }, (_, index) => index + 1);
 
     // Hacer solicitudes para obtener los datos de cada Pokémon en el orden de la lista de IDs
@@ -28,7 +28,7 @@ export class PokedexComponent {
     });
   }
 
-    // Método para filtrar los Pokémon según el término de búsqueda
+    // Método para filtrar los Pokémon según el nombre por la barra de busqueda
     get filteredPokeIds(): number[] {
       return this.pokeIds.filter(pokeId =>
         this.pokes[pokeId].name.toLowerCase().includes(this.searchTerm.toLowerCase())
@@ -38,7 +38,7 @@ export class PokedexComponent {
   getPokemonById(id: number): void {
     this.pokedexService.getPokemon(id).subscribe((data: any) => {
       this.pokes[id] = data;
-      this.pokeIds.push(id); // Adding the ID to the list
+      this.pokeIds.push(id);
     });
   }
 

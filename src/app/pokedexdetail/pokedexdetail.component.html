@@ -1,12 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-        <!-- Sección de la imagen principal y botón de sonido -->
         <div class="col-md-4 text-center">
             <img [src]="pokemonDetails.sprites.front_default" alt="Pokemon Image" class="img-fluid rounded-circle mb-3" width="200">
             <button (click)="playCry(pokemonDetails)" class="btn btn-primary">Play Cry</button>
         </div>
 
-        <!-- Sección de información adicional -->
         <div class="col-md-8">
             <h1 class="display-4 text-uppercase mb-4">{{ pokemonDetails.name }}</h1>
             <div class="border-top border-bottom pt-4 pb-4">
@@ -45,7 +43,6 @@
         </div>
     </div>
 
-    <!-- Sección de otras imágenes -->
     <div class="row mt-4">
         <div class="col-md-3 text-center">
             <h3 class="text-uppercase mb-3">Front Default</h3>
