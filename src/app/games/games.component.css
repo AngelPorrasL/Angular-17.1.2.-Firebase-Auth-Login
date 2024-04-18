@@ -1,0 +1,31 @@
+.pokemon-games {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .game-card {
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #3F3F3F;
+  }
+  
+  .card-title {
+    margin-top: 10px;
+  }
+  
+  .white-text {
+    color: #FFFFFF;
+  }

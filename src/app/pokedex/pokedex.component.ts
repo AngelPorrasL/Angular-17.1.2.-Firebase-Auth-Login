@@ -16,11 +16,15 @@ export class PokedexComponent {
   pokeIds: number[] = [];
   pokes: { [key: number]: any } = {};
   searchTerm: string = '';
+  types: any[] = []; // Lista de tipos de Pokémon
+  selectedType: string = ''; // Tipo de Pokémon seleccionado para filtrar
+
   constructor(private router: Router, private pokedexService: PokedexService) {}
 
   ngOnInit(): void {
+    this.getTypes();
     // Generar una lista de IDs de Pokémon del 1 a cualquier rango deseado)
-    const pokeIds = Array.from({ length: 62 }, (_, index) => index + 1);
+    const pokeIds = Array.from({ length: 1302 }, (_, index) => index + 1);
 
     // Hacer solicitudes para obtener los datos de cada Pokémon en el orden de la lista de IDs
     pokeIds.forEach(id => {
@@ -33,6 +37,24 @@ export class PokedexComponent {
       return this.pokeIds.filter(pokeId =>
         this.pokes[pokeId].name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
+    }
+
+    filterByType(): void {
+      // Filtrar los IDs de los Pokémon según el tipo seleccionado
+      if (this.selectedType) {
+          this.pokeIds = this.pokeIds.filter(pokeId =>
+              this.pokes[pokeId].types.some((type: any) => type.type.name === this.selectedType)
+          );
+      } else {
+          // Si no se seleccionó ningún tipo, restablecer para mostrar todos los Pokémon
+          this.pokeIds = Array.from({ length: 1302 }, (_, index) => index + 1);
+      }
+  }
+
+    getTypes(): void {
+      this.pokedexService.getTypes().subscribe((types: any) => {
+        this.types = types.results.map((type: any) => type.name);
+      });
     }
 
   getPokemonById(id: number): void {

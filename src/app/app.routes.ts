@@ -4,6 +4,7 @@ import { LogicComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { PokedexdetailComponent } from './pokedexdetail/pokedexdetail.component';
+import { GamesComponent } from './games/games.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'pokedex/:id',
     component: PokedexdetailComponent,
+  },
+  {
+    path: 'games',
+    component: GamesComponent,
   },
 ];
