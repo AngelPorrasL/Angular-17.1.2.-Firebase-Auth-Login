@@ -18,18 +18,42 @@ export class PokedexComponent {
   searchTerm: string = '';
   types: any[] = []; // Lista de tipos de Pokémon
   selectedType: string = ''; // Tipo de Pokémon seleccionado para filtrar
+  currentPage: number = 1; // Página actual
+  pageSize: number = 30; // Tamaño de la página
 
   constructor(private router: Router, private pokedexService: PokedexService) {}
 
   ngOnInit(): void {
     this.getTypes();
-    // Generar una lista de IDs de Pokémon del 1 a cualquier rango deseado)
-    const pokeIds = Array.from({ length: 1302 }, (_, index) => index + 1);
+    this.currentPage = 1; // Reiniciar la página actual
+    this.pageSize = 30; // Establecer el tamaño de la página
+    this.loadPokemon(); // Cargar los Pokémon de la página inicial
+  }
 
-    // Hacer solicitudes para obtener los datos de cada Pokémon en el orden de la lista de IDs
-    pokeIds.forEach(id => {
-      this.getPokemonById(id);
+// Método para cargar Pokémon según la página actual y los filtros aplicados
+loadPokemon(): void {
+  const offset = (this.currentPage - 1) * this.pageSize;
+  const pokeIds = Array.from({ length: this.pageSize }, (_, index) => index + offset + 1);
+
+  pokeIds.forEach(id => {
+      if (id <= 1025) { // Limitar la carga a los primeros 1025 Pokémon
+          this.getPokemonById(id);
+      }
+  });
+}
+
+loadAllPokemon(): void {
+    this.pokeIds = Array.from({ length: 1025 }, (_, index) => index + 1);
+    this.pokeIds.forEach(id => {
+        this.getPokemonById(id);
     });
+}
+
+
+  // Método para cargar más Pokémon al hacer clic en el botón "Cargar más"
+  loadMorePokemon(): void {
+      this.currentPage++; // Incrementar la página actual
+      this.loadPokemon(); // Cargar más Pokémon
   }
 
     // Método para filtrar los Pokémon según el nombre por la barra de busqueda
@@ -50,6 +74,11 @@ export class PokedexComponent {
           this.pokeIds = Array.from({ length: 1302 }, (_, index) => index + 1);
       }
   }
+
+  showAllPokemon(): void {
+    this.selectedType = ''; // Restablecer el tipo seleccionado
+    this.loadAllPokemon(); // Cargar todos los Pokémon sin filtro
+}
 
     getTypes(): void {
       this.pokedexService.getTypes().subscribe((types: any) => {
