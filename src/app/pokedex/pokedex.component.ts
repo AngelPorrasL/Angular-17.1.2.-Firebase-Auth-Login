@@ -86,12 +86,14 @@ loadAllPokemon(): void {
       });
     }
 
-  getPokemonById(id: number): void {
-    this.pokedexService.getPokemon(id).subscribe((data: any) => {
-      this.pokes[id] = data;
-      this.pokeIds.push(id);
-    });
-  }
+    getPokemonById(id: number): void {
+      this.pokedexService.getPokemon(id).subscribe((data: any) => {
+        this.pokes[id] = data;
+        if (!this.pokeIds.includes(id)) {
+          this.pokeIds.push(id);
+        }
+      });
+    }
 
   getPokemonImage(pokemon: any): any {
     return {

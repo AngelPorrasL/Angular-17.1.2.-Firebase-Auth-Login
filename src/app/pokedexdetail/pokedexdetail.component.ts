@@ -13,6 +13,8 @@ import { PokedexService } from '../pokedex/services/pokedex.service';
 export class PokedexdetailComponent {
 
   pokemonDetails: any;
+  pokemonDescriptions: any;
+  pokemonWeaks: any;
   pokemonId!: number;
 
   constructor(private route: ActivatedRoute, private pokedexService: PokedexService) { }
@@ -21,6 +23,8 @@ export class PokedexdetailComponent {
     this.route.params.subscribe(params => {
       this.pokemonId = params['id'];
       this.getPokemonDetail(this.pokemonId);
+      this.getPokemonWeak(this.pokemonId);
+      this.getPokemonDescription(this.pokemonId);
     });
   }
 
@@ -29,6 +33,25 @@ export class PokedexdetailComponent {
       .subscribe(
         (data: any) => {
           this.pokemonDetails = data;
+        }
+      );
+  }
+
+  getPokemonWeak(pokemonId: number): void {
+    this.pokedexService.getType(pokemonId)
+      .subscribe(
+        (data: any) => {
+          this.pokemonWeaks = data.damage_relations.double_damage_from;
+        }
+      );
+  }
+
+  getPokemonDescription(pokemonId: number): void {
+    this.pokedexService.getPokemonSpecies(pokemonId)
+      .subscribe(
+        (data: any) => {
+          const descriptionEntry = data.flavor_text_entries.find((entry: any) => entry.language.name === 'en');
+          this.pokemonDescriptions = descriptionEntry ? descriptionEntry.flavor_text : '';
         }
       );
   }

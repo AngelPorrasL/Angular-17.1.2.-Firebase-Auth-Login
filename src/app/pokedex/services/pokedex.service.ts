@@ -16,7 +16,15 @@ export class PokedexService {
     return this.http.get('https://pokeapi.co/api/v2/type/');
   }
 
+  getType(id: number) {
+    return this.http.get(`https://pokeapi.co/api/v2/type/${id}`);
+  }
+
   getAllPokemon(id: number) {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  }
+
+  getPokemonSpecies(id: number) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
   }
 }
