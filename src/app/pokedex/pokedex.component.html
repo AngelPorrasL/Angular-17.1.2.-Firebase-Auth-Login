@@ -24,7 +24,7 @@
                         <p class="m-0">N. {{ pokeId.toString().padStart(4, '0') }}</p>
                     </div>
                     <div *ngIf="pokes[pokeId]">
-                        <img src='{{ pokes[pokeId].sprites.front_default }}' class="card-img-top img-fluid" alt="Pokemon Image" loading="lazy">
+                        <img src='{{ pokes[pokeId].sprites.front_default }}' class="card-img-top img-fluid" alt="Pokemon Image" loading="eager">
                     </div>
                     <div class="mb-2">
                         <p class="card-text">
