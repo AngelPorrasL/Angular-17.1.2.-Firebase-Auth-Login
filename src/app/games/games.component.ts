@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 export class GamesComponent {
   versions: any[] = [];
 
-  constructor(private gamesService: GamesService) { }
+  constructor(private gamesService: GamesService, private router: Router) { }
 
   ngOnInit(): void {
     this.getGames();
@@ -25,10 +25,14 @@ export class GamesComponent {
     const versionGroupIds = Array.from({ length: 27 }, (_, index) => index + 1); // Generar IDs del 1 al 27
     versionGroupIds.forEach(versionGroupId => {
       this.gamesService.getGames(versionGroupId).subscribe((data: any) => {
-        if (data.versions) {
-          this.versions = this.versions.concat(data.versions.map((version: any) => version.name));
+        if (data) {
+          this.versions.push(data); // Agregar el detalle completo del juego al array
         }
       });
     });
+  }
+
+  onGameClick(id: number) {
+    this.router.navigate(['/games', id]);
   }
 }

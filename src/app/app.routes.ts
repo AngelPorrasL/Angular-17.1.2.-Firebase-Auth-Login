@@ -5,6 +5,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { PokedexdetailComponent } from './pokedexdetail/pokedexdetail.component';
 import { GamesComponent } from './games/games.component';
+import { GamesdetailComponent } from './gamesdetail/gamesdetail.component';
+import { ItemsComponent } from './items/items.component';
+import { ItemscategoryComponent } from './itemscategory/itemscategory.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +33,17 @@ export const routes: Routes = [
   {
     path: 'games',
     component: GamesComponent,
+  },
+  {
+    path: 'games/:id',
+    component: GamesdetailComponent,
+  },
+  {
+    path: 'items',
+    component: ItemsComponent,
+  },
+  {
+    path: 'items/:category',
+    component: ItemscategoryComponent,
   },
 ];

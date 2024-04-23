@@ -1,12 +1,12 @@
 <div class="container mt-4 pokemon-games">
-    <h1>Pokémon Games</h1>
-    <div class="row">
-      <div *ngFor="let version of versions" class="col-md-4 game-card">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title white-text">{{ version }}</h5>
-          </div>
+  <h1>Pokémon Games</h1>
+  <div class="row justify-content-center">
+    <div *ngFor="let version of versions" class="col-md-4 game-card" (click)="onGameClick(version.id)">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title white-text">{{ version.name }}</h5>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -1,0 +1,49 @@
+.game-container {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.game-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.game-info {
+  font-size: 16px;
+}
+
+.detail {
+  margin-bottom: 15px;
+}
+
+.detail p {
+  margin-bottom: 5px;
+}
+
+.detail ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.detail ul li {
+  font-size: 14px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.detail ul li:before {
+  content: "\2022";
+  color: #007bff;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+}
+
+.detail ul li:last-child {
+  margin-bottom: 0;
+}
