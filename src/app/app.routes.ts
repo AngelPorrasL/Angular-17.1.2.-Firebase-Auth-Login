@@ -8,6 +8,7 @@ import { GamesComponent } from './games/games.component';
 import { GamesdetailComponent } from './gamesdetail/gamesdetail.component';
 import { ItemsComponent } from './items/items.component';
 import { ItemscategoryComponent } from './itemscategory/itemscategory.component';
+import { ItemscatdetailComponent } from './itemscatdetail/itemscatdetail.component';
 
 export const routes: Routes = [
   {
@@ -45,5 +46,9 @@ export const routes: Routes = [
   {
     path: 'items/:category',
     component: ItemscategoryComponent,
+  },
+  {
+    path: 'categories/:categoryId/items/:itemId',
+    component: ItemscatdetailComponent,
   },
 ];
