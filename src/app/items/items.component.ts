@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ItemsService } from './services/items.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-items',
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './items.component.css'
 })
 export class ItemsComponent {
+  authService = inject(AuthService)
   categories: any[] = [];
   selectedCategory: any;
   items: any[] = [];

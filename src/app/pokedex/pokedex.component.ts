@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PokedexService } from './services/pokedex.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-pokedex',
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './pokedex.component.css'
 })
 export class PokedexComponent {
+  authService = inject(AuthService)
   pokeIds: number[] = [];
   pokes: { [key: number]: any } = {};
   searchTerm: string = '';

@@ -1,3 +1,4 @@
+@if (authService.currentUserSig()) {
 <div class="container mt-4">
     <h1>Welcome to the Pokémon Wiki!</h1>
     <p>Explore the world of Pokémon through our comprehensive database.</p>
@@ -52,3 +53,18 @@
         </div>
     </div>
 </div>
+}
+
+@if (authService.currentUserSig() == null) {
+    <div class="center-div card border-primary mx-auto mb-3" style="max-width: 20rem;">
+        <div class="card-header bg-light text-white">¡PokeAuth!</div>
+        <div class="card-body">
+            <h4 class="card-title">IMPORTANTE!</h4>
+            <p class="card-text">Para acceder a esta información, por favor inicia sesión o crea una cuenta.</p>
+            <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+            <div style="height: 10px;"></div> <!-- Espacio entre los botones -->
+            <a  href="/register" class="btn btn-info">Crear Cuenta</a>
+        </div>
+    </div>
+    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/717.png" alt="Yveltal">
+    }

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject} from '@angular/core';
 import { GamesService } from './services/games.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-games',
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './games.component.css'
 })
 export class GamesComponent {
+  authService = inject(AuthService)
   versions: any[] = [];
 
   constructor(private gamesService: GamesService, private router: Router) { }
